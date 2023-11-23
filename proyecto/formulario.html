@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>FORMULARIO DE REGISTRO</title>
+</head>
+<body>
+    <form method="POST" action="guardar.php">
+    <div class="formulario-container">
+        <h1>Bienvenido</h1>
+        <h1>FORMULARIO DE REGISTRO UNIEMPRESARIAL</h1>
+
+        <form id="myForm" onsubmit="submitForm(event)">
+            <label for="tipoUsuario">¿Estudiante o invitado?</label>
+            <select id="tipoUsuario" name="Id_tipo" required>
+                <option value="1">Estudiante</option>
+                <option value="2">Invitado</option>
+            </select>
+
+            <label for="correo">Correo electrónico</label>
+            <input name="Correo" type="email" id="correo" required>
+
+            <label for="nombres">Nombres</label>
+            <input name="Nombres" type="text"  id="nombres" required>
+
+            <label for="apellidos">Apellidos</label>
+            <input name="Apellidos" type="text" id="apellidos" required>
+
+            <label for="idDocumento">Documento</label>
+            <input name="Documento" type="number" id="idDocumento" pattern="[0-9]{10}" required>
+
+            <label for="telefono">Número teléfono</label>
+            <input  name="Numero" id="number" pattern="[0-9]{10}" required>
+
+            <label for="llevaComputador">7. ¿Lleva computador?</label>
+            <select id="llevaComputador"   onchange="mostrarDatosComputador()">
+
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+                
+            </select>
+
+            <div id="datosComputador" style="display:none;">
+                <label for="marca">Marca</label>
+                <input type="text" name="Marca" id="marca">
+
+                <label for="color">Color</label>
+                <input type="text" name="Color"    id="color">
+
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion"></textarea>
+                
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="resultado" style="display:none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
